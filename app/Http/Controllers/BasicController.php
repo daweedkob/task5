@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class BasicController extends Controller
 {
     public function ViewCompanies(Request $request){
-        return view("company.company-page")
-        ->with('joined',False);
+        return view("company.company-page");
     }
 
     public function AddCompany(){

@@ -16,10 +16,10 @@
 
 <body>
 <a href="/">Home</a><br>
-<a href="employee/create" method="post">Add</a>
+<a href="{{ route('employee.create') }}" method="post">Add</a>
 <div class="card">
     <div class="card-header">
-        <h3>Employees</h3>
+        <h3>Employees @isset($joined)Joined @endisset</h3>
     </div>
     <div class="card-body">
         <table class='table' id = 'employee-table'>
@@ -33,7 +33,7 @@
                 <th>Works In</th>
                 <th>Updated at</th>
             </thead>
-            @if($joined)
+            @if(isset($joined))
             @foreach($company as $emp)
             <tr>
                 <td>{{$loop->index+1}}</td>
