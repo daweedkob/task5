@@ -33,6 +33,26 @@
                 <th>Works In</th>
                 <th>Updated at</th>
             </thead>
+            @if($joined)
+            @foreach($company as $emp)
+            <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$emp->name}}</td>
+                <td>{{$emp->lastname}}</td>
+                <td>{{$emp->birthdate}}</td>
+                <td>{{$emp->personal_id}}</td>
+                <td>{{$emp->salary}}</td>
+                <td>{{ $emp->company_name }}</td>
+                <td>{{$emp->updated_at}}</td>
+                <td><button onclick="deleteEmployee(event)"
+                            data-deleteurl="{{ route('employee.destroy', ['employee' => $emp->id]) }}"
+                            class="btn btn-danger">Delete</button></td>
+
+                <td><a href = "{{ route('employee.edit',['id'=>$emp->id])}}">Edit</a></td>
+            </tr>
+
+            @endforeach
+            @else
             @foreach($_EMPLOYEES as $emp)
             <tr>
                 <td>{{$loop->index+1}}</td>
@@ -57,6 +77,7 @@
             </tr>
 
             @endforeach
+            @endif
         </table>
     </div>
 </div>
