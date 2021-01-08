@@ -54,7 +54,7 @@ class BasicController extends Controller
             'companies.name as company_name'
         )
         ->get();
-        return view("employee.employee-page-join")
+        return view("employee.employee-page")
         ->with('company', $company);
     }
 }
